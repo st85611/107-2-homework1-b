@@ -308,13 +308,25 @@ div.tocify {
 <div class="section level2">
 <h2>1.1 效應評估</h2>
 <p>我們以個體經濟學為考量之進階課程，學生學習成效以<strong>個經PR</strong>（即學生第一次第一學期修完個經在同班的排名）來衡量。令<strong>可修個體</strong>虛擬變數其值為1若該學生通過修課限制可以修個經，反之為0。請寫下正確的效應結構（ 課堂上的Y即這裡的 <strong>個經PR</strong>，請對應課堂的<span class="math inline">\(Y_{1i}-Y_{0i}\)</span>寫法，寫出這題的表示句子。)</p>
-<p><span class="math display">\[PR_{1k}-PR_{0k}\]</span> <span class="math inline">\(PR_{1k}\)</span>為未被擋修學生的排名，<span class="math inline">\(PR_{0k}\)</span>為被擋修學生的排名。 在兩個變數中，都有一個情境的薪資是觀察不到的。令PR為可以觀察到的成績（可能是沒被擋修的成績<span class="math inline">\(PR_{1k}\)</span>,也可能是沒被擋修的成績<span class="math inline">\(PR_{0k}\)</span>，視對象實際有無被擋修而定）。</p>
+<table>
+<tr>
+<td bgcolor="#F5F5DC">
+<span class="math display">\[PR_{1k}-PR_{0k}\]</span> <span class="math inline">\(PR_{1k}\)</span>為未被擋修學生的排名，<span class="math inline">\(PR_{0k}\)</span>為被擋修學生的排名。 在兩個變數中，都有一個情境的薪資是觀察不到的。令PR為可以觀察到的成績（可能是沒被擋修的成績<span class="math inline">\(PR_{1k}\)</span>,也可能是沒被擋修的成績<span class="math inline">\(PR_{0k}\)</span>，視對象實際有無被擋修而定）。
+</td>
+</tr>
+</table>
 </div>
 <div class="section level2">
 <h2>1.2 效應結構</h2>
 <p>接續上題，課堂上的treatment dummy即為這裡的<strong>可修個體</strong>dummy，請寫下對應課堂效應結構<span class="math inline">\(Y_i=Y_{0i}+(Y_{1i}-Y_{0i})T_i\)</span>之對應寫法（以這裡的文字符號表示）。</p>
+<table>
+<tr>
+<td bgcolor="#F5F5DC">
 <p><span class="math display">\[PR_{k}=PR_{0k}+(PR_{1k}-PR_{0k}) T_{k}\]</span> k泛指任何人，上式表示每一個沒有被的擋修的人（即T=1)，他的實際成績是他的「被擋修的成績」再加上「沒有被擋修的效果」所造成。</p>
-<p>令<span class="math inline">\(\delta_{k}=PR_{1k}-PR_{0k}\)</span>代表每個人有沒有被擋修的成績效果， 假設每個人沒有被擋修的效果相同<span class="math inline">\(\delta_{k}=\delta\)</span>,則： <span class="math display">\[PR_{k}=PR_{0k}-\delta T_{k}\]</span></p>
+令<span class="math inline">\(\delta_{k}=PR_{1k}-PR_{0k}\)</span>代表每個人有沒有被擋修的成績效果， 假設每個人沒有被擋修的效果相同<span class="math inline">\(\delta_{k}=\delta\)</span>,則： <span class="math display">\[PR_{k}=PR_{0k}-\delta T_{k}\]</span>
+</td>
+</tr>
+</table>
 </div>
 <div class="section level2">
 <h2>1.3 簡單迴歸模型</h2>
@@ -345,17 +357,35 @@ model_1_coeftest</code></pre>
 ## ami         0.078732   0.028788  2.7349  0.006407 ** 
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-<p><span class="math inline">\(\beta_{0}=0.285110\)</span>，<span class="math inline">\(\beta_{1}=0.078732\)</span>，且由p-value=0.0064知道個經成績可被有沒有被擋修解釋，沒被擋修的同學的個經PR會比被擋修的同學高出0.079。</p>
+<table>
+<tr>
+<td bgcolor="#F5F5DC">
+<span class="math inline">\(\beta_{0}=0.285110\)</span>，<span class="math inline">\(\beta_{1}=0.078732\)</span>，且由p-value=0.0064知道個經成績可被有沒有被擋修解釋，沒被擋修的同學的個經PR會比被擋修的同學高出0.079。
+</td>
+</tr>
+</table>
 </div>
 <div class="section level2">
 <h2>1.4 選擇性偏誤</h2>
 <p>上題的估計結果很可能不正確，請說明原因故事（非數學證明）。</p>
-<p>因為立足點高的人（即經原成績較高）個經成績也傾向較高，所以單純比較每被擋修與有被擋修的個經成績，除了反應有沒有被擋修的效果之外，也反應了立足點的差異。</p>
+<table>
+<tr>
+<td bgcolor="#F5F5DC">
+因為立足點高的人（即經原成績較高）個經成績也傾向較高，所以單純比較每被擋修與有被擋修的個經成績，除了反應有沒有被擋修的效果之外，也反應了立足點的差異。
+</td>
+</tr>
+</table>
 </div>
 <div id="-1" class="section level2">
 <h2>1.5 選擇性偏誤</h2>
 <p>這個資料還包含<strong>經原PR</strong>變數，它是學生最後修過的經原成績在該經原班的排名。說明有必要控制<strong>經原PR</strong>的理由（非數學證明）。</p>
-<p>經原成績可用來代表學生一開始的程度高低，經原成績好的同學亦可能在個經表現優異，因此須將經原成績列入考量，才可能將不同能力的同學放在同樣的立足點比較。</p>
+<table>
+<tr>
+<td bgcolor="#F5F5DC">
+經原成績可用來代表學生一開始的程度高低，經原成績好的同學亦可能在個經表現優異，因此須將經原成績列入考量，才可能將不同能力的同學放在同樣的立足點比較。
+</td>
+</tr>
+</table>
 </div>
 <div class="section level2">
 <h2>1.6 複迴歸模型</h2>
@@ -374,7 +404,13 @@ model_2_coeftest</code></pre>
 ## ecopr       0.096260   0.038603  2.4936  0.01289 *  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-<p>由此可知，<span class="math inline">\(\beta_{0}=0.252055\)</span>，<span class="math inline">\(\beta_{1}=0.068024\)</span>，<span class="math inline">\(\beta_{2}=0.096260\)</span></p>
+<table>
+<tr>
+<td bgcolor="#F5F5DC">
+由此可知，<span class="math inline">\(\beta_{0}=0.252055\)</span>，<span class="math inline">\(\beta_{1}=0.068024\)</span>，<span class="math inline">\(\beta_{2}=0.096260\)</span>
+</td>
+</tr>
+</table>
 </div>
 <div class="section level2">
 <h2>1.7 變數關連</h2>
@@ -391,7 +427,7 @@ model_2_coeftest</code></pre>
 <div class="section level2">
 <h2>1.8 偏誤方向</h2>
 <p>請填入以下空格完成完整偏誤論述：<br />
-有控制<strong>經原PR</strong>時，擋修會使得<strong>個經PR</strong> (1)<strong>下降</strong>(上升/下降) (2)__<span class="math inline">\(6.8024\)</span>__百分點，其值比未控制<strong>經原PR</strong>時還 (3)<strong>低</strong>(高/低)；這表示忽略<strong>經原PR</strong>會對效應係數估計產生 (4)<strong>正向偏誤</strong>(正向偏誤(upward bias)/負向偏誤(downward bias))。之所以會有上述的偏誤方向來自於兩個因素：</p>
+有控制<strong>經原PR</strong>時，擋修會使得<strong>個經PR</strong> (1)<strong>下降</strong>(上升/下降) (2)__6.8024__百分點，其值比未控制<strong>經原PR</strong>時還 (3)<strong>低</strong>(高/低)；這表示忽略<strong>經原PR</strong>會對效應係數估計產生 (4)<strong>正向偏誤</strong>(正向偏誤(upward bias)/負向偏誤(downward bias))。之所以會有上述的偏誤方向來自於兩個因素：</p>
 <ol style="list-style-type: decimal">
 <li><strong>經原PR</strong>與<strong>個經PR</strong>有(5)<strong>正向</strong>(正向/反向)關連</li>
 <li><strong>可修個體</strong>=1的族群，其<strong>經原PR</strong>平均較(6)<strong>高</strong>(高/低)</li>
@@ -618,6 +654,14 @@ F Statistic
 <li><p><span class="math display">\[\sum_i w_i=\sum_{i,x_i=1} w_i +\sum_{i,x_i=0} w_i\]</span></p></li>
 <li><p><span class="math inline">\(\bar{x}=n_1/n\)</span>, 其中<span class="math inline">\(n=n_0+n_1\)</span>。</p></li>
 </ul>
+<p> </p>
+<table>
+<tr>
+<td bgcolor="#F5F5DC">
+<span class="math display">\[\hat{\beta}_1=\frac{\sum_{i=1}^N (x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^N (x_i-\bar{x})^2}=\frac{\sum_{i,x_i=1}^N (1-\frac{n_1}{n})(y_i-\bar{y})+\sum_{i,x_i=0}^N (0-\frac{n_1}{n})(y_i-\bar{y})}{\sum_{i,x_i=1}^N (1-\frac{n_1}{n})^2+\sum_{i,x_i=0}^N (0-\frac{n_1}{n})^2}\]</span>   <span class="math display">\[=\frac{(\frac{n_0}{n})\sum_{i,x_i=1}^N(y_i-\bar{y})+(\frac{n_1}{n})\sum_{i,x_i=0}^N(y_i-\bar{y})}{n_1(\frac{n_0}{n})^2+n_0(\frac{n_1}{n})^2}=\frac{(\frac{n_0}{n})\sum_{i,x_i=1}^N y_i-(\frac{n_1}{n})\sum_{i,x_i=0}^N y_i}{\frac{n_1 n_0^2+n_0 n_1^2}{n^2}}\]</span>   <span class="math display">\[=\frac{(\frac{\sum_{i,x_i=1}^N y_i}{n_1})+(\frac{\sum_{i,x_i=0}^N y_i}{n_0})}{\frac{n_0+ n_1}{n}}=\bar{y_1}+\bar{y_2}\]</span>
+</td>
+</tr>
+</table>
 </div>
 <div id="section-1" class="section level2">
 <h2>2.2</h2>
